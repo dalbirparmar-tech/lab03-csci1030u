@@ -25,8 +25,8 @@ def word_lengths(sentence):
     list = []
     splitsentence = sentence.split(" ")
     
-    for n in eachword:
-        list.append(len(splitsentence[n]))
+    for n in range(len(splitsentence)):
+      list.append(len(splitsentence[n]))
     
     return list
 
@@ -37,7 +37,7 @@ def reverse_words(sentence):
     splitsentence = sentence.split(" ")
     finalsentence = ""
     
-    range(len(splitsentence) - 1, -1, -1)    
+    eachword = range(len(splitsentence) - 1, -1, -1)    
     for n in eachword:
      finalsentence += splitsentence[n] + " "
     
@@ -52,13 +52,13 @@ def letter_counts(text):
     
     eachletter = range(0, len(text))
     for n in eachletter:
-      dictionary[text[n]] = dictionary[text[n]].lower()
-      if not eachletter.isalpha():
-          continue
-      if dictionary.get(text[n]) == None:
-         dictionary[text[n]] = 1
+      letter = text[n].lower()      
+      if not letter.isalpha():
+        continue
+      if dictionary.get(letter) == None:
+         dictionary[letter] = 1
       else:
-          dictionary[text[n]] += 1
+          dictionary[letter] += 1
         
     return dictionary
 
