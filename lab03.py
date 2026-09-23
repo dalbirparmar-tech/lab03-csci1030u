@@ -24,10 +24,13 @@ def word_lengths(sentence):
     #   (words are separated by spaces).
     list = []
     splitsentence = sentence.split(" ")
-    
+
+    if sentence == "":
+        return []
+
     for n in range(len(splitsentence)):
-      list.append(len(splitsentence[n]))
-    
+        list.append(len(splitsentence[n]))
+
     return list
 
 
@@ -36,11 +39,13 @@ def reverse_words(sentence):
     #   e.g. "hello world" -> "world hello"
     splitsentence = sentence.split(" ")
     finalsentence = ""
-    
-    eachword = range(len(splitsentence) - 1, -1, -1)    
+
+    eachword = range(len(splitsentence) - 1, -1, -1)
     for n in eachword:
-     finalsentence += splitsentence[n] + " "
-    
+        finalsentence += splitsentence[n]
+        if n != 0:
+            finalsentence += " "
+
     return finalsentence
 
 
