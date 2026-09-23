@@ -15,9 +15,7 @@ def pig_latin(word):
     if hasvowel:
         piglatinword += "way"
     else:
-     piglatinword[len(word)] = piglatinword[0]
-     piglatinword[0] = ""
-     piglatinword += "ay"
+     piglatinword = piglatinword[1:] + piglatinword[0] + "ay"
     return piglatinword
 
 
@@ -26,9 +24,10 @@ def word_lengths(sentence):
     #   (words are separated by spaces).
     list = []
     splitsentence = sentence.split(" ")
-    eachword = range(0,len(splitsentence))
+    
     for n in eachword:
-        list[n] = len(eachword)
+        list.append(len(splitsentence[n]))
+    
     return list
 
 
@@ -38,9 +37,9 @@ def reverse_words(sentence):
     splitsentence = sentence.split(" ")
     finalsentence = ""
     
-    eachword = range(-1, len(splitsentence), -1)
+    range(len(splitsentence) - 1, -1, -1)    
     for n in eachword:
-     finalsentence += splitsentence[n]
+     finalsentence += splitsentence[n] + " "
     
     return finalsentence
 
@@ -53,6 +52,9 @@ def letter_counts(text):
     
     eachletter = range(0, len(text))
     for n in eachletter:
+      dictionary[text[n]] = dictionary[text[n]].lower()
+      if not eachletter.isalpha():
+          continue
       if dictionary.get(text[n]) == None:
          dictionary[text[n]] = 1
       else:
